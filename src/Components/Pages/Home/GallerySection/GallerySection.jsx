@@ -41,7 +41,7 @@ const GallerySection = () => {
         variants={variants}
         transition={{ duration: 1.5 }}
       >
-        <p className="text-3xl text-center pt-10 text-purple">
+        <p className="text-3xl font-bold text-center pt-10 text-purple">
           Explore our beautiful toys collection
         </p>
         <Swiper
