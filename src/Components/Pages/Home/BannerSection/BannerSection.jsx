@@ -92,7 +92,7 @@ const BannerSection = () => {
                     style={{ fontSize: "1em" }}
                   />
                 </h1>
-                <p className="text-lg text-gray-700">
+                <p className="text-base text-gray-700">
                   Explore our extensive collection of toys and games that
                   inspire creativity and imagination. Find the perfect toys to
                   bring smiles and laughter to your child's face. Start the
@@ -142,7 +142,7 @@ const BannerSection = () => {
                     style={{ fontSize: "1em" }}
                   />
                 </h1>
-                <p className="text-lg text-gray-700">
+                <p className="text-base text-gray-700">
                   Discover a world of fun and learning with our wide range of
                   educational toys. From building blocks to puzzles and science
                   kits, we have everything to make learning exciting and
@@ -191,7 +191,7 @@ const BannerSection = () => {
                     style={{ fontSize: "1em" }}
                   />
                 </h1>
-                <p className="text-lg text-gray-700">
+                <p className="text-base text-gray-700">
                   Get ready for hours of entertainment with our selection of
                   interactive and electronic toys. From remote-controlled cars
                   to interactive robots, your child will be immersed in a world
@@ -240,7 +240,7 @@ const BannerSection = () => {
                     style={{ fontSize: "1em" }}
                   />
                 </h1>
-                <p className="text-lg text-gray-700">
+                <p className="text-base text-gray-700">
                   Make playtime unforgettable with our collection of classic
                   toys and games. From board games to dolls and action figures,
                   relive the joy of traditional play and create lasting memories
