@@ -8,6 +8,8 @@ import Main from './Components/Layout/Main.jsx';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import AuthProvider from './Components/Providers/AuthProvider';
+import Login from './Components/Pages/Login/Login';
+import Signup from './Components/Pages/Signup/Signup';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -16,7 +18,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+         path:'login',
+         element: <Login/>,
+      },
+      {
+        path:'signup',
+        element:<Signup/>
       }
+
     ],
   },
 ]);

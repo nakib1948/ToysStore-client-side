@@ -98,7 +98,7 @@ const CustomerReview = () => {
           modules={[EffectCoverflow, Pagination, Autoplay]}
           className="mySwiper"
           autoplay={{
-            delay: 3000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
         >
