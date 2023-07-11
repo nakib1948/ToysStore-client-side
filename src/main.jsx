@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AuthProvider from './Components/Providers/AuthProvider';
 import Login from './Components/Pages/Login/Login';
+import 'react-toastify/dist/ReactToastify.css';
 import Signup from './Components/Pages/Signup/Signup';
 const router = createBrowserRouter([
   {
