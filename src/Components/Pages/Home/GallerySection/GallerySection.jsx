@@ -21,6 +21,7 @@ import img7 from "../../../../assets/GalleryImg/img7.jpg";
 import img8 from "../../../../assets/GalleryImg/img8.jpg";
 import img9 from "../../../../assets/GalleryImg/img9.jpg";
 import img10 from "../../../../assets/GalleryImg/img10.jpg";
+import gallerybg from "../../../../assets/GalleryImg/gellaryBg.jpg";
 
 const GallerySection = () => {
   const [ref, inView] = useInView({
@@ -34,7 +35,7 @@ const GallerySection = () => {
   };
 
   return (
-    <div className="my-20" ref={ref}>
+    <div className="my-20" ref={ref} >
       <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"} // Use inView to control the animation
@@ -44,6 +45,11 @@ const GallerySection = () => {
         <p className="text-3xl font-bold text-center pt-10 text-purple">
           Explore our beautiful toys collection
         </p>
+        <div className="mt-5 p-10 rounded-md"  style={{
+        backgroundImage: `url(${gallerybg})`,
+      }}> 
+
+        
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
@@ -95,6 +101,7 @@ const GallerySection = () => {
             <img className="w-full h-full object-cover" src={img10} />
           </SwiperSlide>
         </Swiper>
+        </div>
       </motion.div>
     </div>
   );

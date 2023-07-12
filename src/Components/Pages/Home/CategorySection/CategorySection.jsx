@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import img1 from "../../../../assets/Marvel/img3.jpg";
+import img1 from "../../../../assets/Marvel/hulk.jpg";
 import img2 from "../../../../assets/Marvel/img2.jpg";
 import img3 from "../../../../assets/Marvel/img5.jpg";
 const CategorySection = () => {
@@ -21,7 +21,7 @@ const CategorySection = () => {
         <TabPanel>
           <div className="card w-96 bg-base-100 shadow-xl">
             <figure className=" pt-10">
-              <img src={img1} alt="Shoes" className="rounded-xl h-96" />
+              <img src={img1} alt="Shoes" className="rounded-xl h-60" />
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Shoes!</h2>

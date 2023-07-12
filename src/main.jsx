@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Signup from './Components/Pages/Signup/Signup';
 import Unknownpage from './Components/Pages/Unknownpage';
 import Blog from './Components/Pages/Blog/Blog';
+import AllToys from './Components/Pages/AllToys/AllToys';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path:'blog',
         element:<Blog/>
+      },
+      {
+        path:'alltoys',
+        element:<AllToys/>,
+        loader:()=>fetch('http://localhost:3000/alltoys')
       }
 
     ],

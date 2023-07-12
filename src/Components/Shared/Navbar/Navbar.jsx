@@ -38,7 +38,7 @@ const Navbar = () => {
               <Link to="/" className="text-xl text-purple rounded-full">Home</Link>
             </li>
             <li>
-              <a className="text-xl text-purple rounded-full">All Toys</a>
+              <Link to="/alltoys" className="text-xl text-purple rounded-full">All Toys</Link>
             </li>
             <li>
               <Link to="/blog" className="text-xl  text-purple rounded-full">Blogs</Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
           <Link to="/" className="text-xl text-purple rounded-full">Home</Link>
           </li>
           <li>
-            <a className="text-xl text-purple rounded-full">All Toys</a>
+            <Link to="/alltoys" className="text-xl text-purple rounded-full">All Toys</Link>
           </li>
           <li>
           <Link to="/blog" className="text-xl  text-purple rounded-full">Blogs</Link>
