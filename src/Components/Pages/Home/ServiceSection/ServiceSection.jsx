@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import img1 from "../../../../assets/Services/img1.svg"
-import img2 from "../../../../assets/Services/img2.svg"
-import img3 from "../../../../assets/Services/img3.svg"
-import img4 from "../../../../assets/Services/img4.svg"
+import Lottie from "lottie-react";
+import img3 from "../../../../assets/Services/cutomerSupport.json"
+import img1 from "../../../../assets/Services/shipping.json"
+import img2 from "../../../../assets/Services/payment.json"
+import img4 from "../../../../assets/Services/return.json"
 const ServiceItem = ({ image, title, description }) => {
     const [ref, inView] = useInView({
       triggerOnce: false, // Only trigger animation once
@@ -25,14 +26,7 @@ const ServiceItem = ({ image, title, description }) => {
         className="md:w-1/2 lg:w-1/4 border-r-2 border-base-200 pr-10"
       >
         <div className="text-center hover:scale-110">
-          <motion.img
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="w-32 h-32 rounded-full mx-auto mb-6 hover:scale-110"
-            src={image}
-            alt="Service Image"
-          />
+        <Lottie className=" rounded-full mx-auto hover:scale-110" animationData={image} />
           <motion.h3 className="text-xl font-bold mb-4 hover:scale-110 hover:text-purple ">{title}</motion.h3>
           <motion.p className="text-gray-700 hover:scale-110">{description}</motion.p>
         </div>

@@ -11,6 +11,8 @@ import AuthProvider from './Components/Providers/AuthProvider';
 import Login from './Components/Pages/Login/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import Signup from './Components/Pages/Signup/Signup';
+import Unknownpage from './Components/Pages/Unknownpage';
+import Blog from './Components/Pages/Blog/Blog';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,10 +29,18 @@ const router = createBrowserRouter([
       {
         path:'signup',
         element:<Signup/>
+      },
+      {
+        path:'blog',
+        element:<Blog/>
       }
 
     ],
   },
+  {
+    path:'*',
+    element:<Unknownpage/>
+  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className="mx-auto max-w-7xl">
