@@ -1,68 +1,80 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import img1 from "../../../../assets/Marvel/hulk.jpg";
-import img2 from "../../../../assets/Marvel/img2.jpg";
-import img3 from "../../../../assets/Marvel/img5.jpg";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import SubCategory from "./SubCategory";
+import { useLoaderData } from "react-router-dom";
+
 const CategorySection = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  const variants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const toys = useLoaderData();
+
   return (
-    <div>
-      <Tabs>
-        
-      
-        <TabList className="react-tabs__tab-list flex flex-row justify-center">
-          <Tab className="react-tabs__tab text-xl">Marvel</Tab>
-          <Tab className="react-tabs__tab text-xl">DC</Tab>
-          <Tab className="react-tabs__tab text-xl">Star Wars</Tab>
-        </TabList>
+    <div ref={ref}>
+      <p className="text-3xl pb-10 font-bold text-purple text-center">Purchase by category</p>
+      <motion.div
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"} // Use inView to control the animation
+        variants={variants}
+        transition={{ duration: 1.5 }}
+      >
+        <Tabs>
+          <TabList className="react-tabs__tab-list text-purple flex flex-row justify-center">
+            <Tab className="react-tabs__tab text-xl">Marvel Toys</Tab>
+            <Tab className="react-tabs__tab text-xl">DC Toys</Tab>
+            <Tab className="react-tabs__tab text-xl">Star Wars Toys</Tab>
+          </TabList>
 
-      
-
-        <TabPanel>
-          <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className=" pt-10">
-              <img src={img1} alt="Shoes" className="rounded-xl h-60" />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
+          <TabPanel>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10">
+              {toys
+                .filter((data, index) => {
+                  return data.subcategory === "Marvel";
+                })
+                .slice(0, 8)
+                .map((data, key) => (
+                  <SubCategory key={key} subcategory={data} />
+                ))}
             </div>
-          </div>
-        </TabPanel>
+          </TabPanel>
 
-        <TabPanel>
-          <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-              <img src={img3} alt="Shoes" className="rounded-xl h-96" />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
+          <TabPanel>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10">
+              {toys
+                .filter((data, index) => {
+                  return data.subcategory === "DC";
+                })
+                .slice(0, 8)
+                .map((data, key) => (
+                  <SubCategory key={key} subcategory={data} />
+                ))}
             </div>
-          </div>
-        </TabPanel>
+          </TabPanel>
 
-        <TabPanel>
-          <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-              <img src={img2} alt="Shoes" className="rounded-xl h-96" />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">Shoes!</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions">
-                <button className="btn btn-primary">Buy Now</button>
-              </div>
+          <TabPanel>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 my-10">
+              {toys
+                .filter((data, index) => {
+                  return data.subcategory === "Star Wars";
+                })
+                .slice(0, 8)
+                .map((data, key) => (
+                  <SubCategory key={key} subcategory={data} />
+                ))}
             </div>
-          </div>
-        </TabPanel>
-      </Tabs>
+          </TabPanel>
+        </Tabs>
+      </motion.div>
     </div>
   );
 };
