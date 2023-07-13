@@ -127,7 +127,7 @@ const BannerSection = () => {
                   {" "}
                   <TypeAnimation
                     sequence={[
-                      // Same substring at the start will only be typed once, initially
+                     
                       " Find the Perfect Toys for Every Child",
                       1000,
                       "Unleash the Fun with Our Diverse Range of Toys",

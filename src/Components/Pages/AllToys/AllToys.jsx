@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import alltoys from "../../../assets/AllToys/alltoy.jpg";
 import { useLoaderData } from "react-router-dom";
 import Toytable from "./Toytable";
+import Pagination from "./Pagination";
 const AllToys = () => {
-  
-// const [alltoys,setAlltoys]=useState([])
- const toys=useLoaderData();
- console.log(toys)
+  // const [alltoys,setAlltoys]=useState([])
+  const toys = useLoaderData();
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 20;
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = toys.slice(firstPostIndex, lastPostIndex);
 
   return (
     <div>
       <div
-        className="relative mb-5"
+        className="relative mb-5 rounded-md"
         style={{
           backgroundImage: `url(${alltoys})`,
           backgroundSize: "cover",
@@ -36,12 +41,9 @@ const AllToys = () => {
 
       <div className="overflow-x-auto bg-base-200">
         <table className="table">
-          {/* head */}
           <thead>
             <tr>
-              <th className="text-base text-purple ">
-              NO.
-              </th>
+              <th className="text-base text-purple ">NO.</th>
               <th className="text-base text-purple ">Image</th>
               <th className="text-base text-purple ">Toy Name</th>
               <th className="text-base text-purple ">Sub-category</th>
@@ -51,17 +53,19 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
 
-            {
-                toys.map((toy,index)=> <Toytable key={index} id={index} toy={toy}></Toytable> )
-            }
-          
-          
+            {currentPosts.map((toy, index) => (
+              <Toytable key={index} id={index} toy={toy}></Toytable>
+            ))}
           </tbody>
-        
         </table>
       </div>
+      <Pagination
+        totalPosts={toys.length}
+        postsPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      ></Pagination>
     </div>
   );
 };
