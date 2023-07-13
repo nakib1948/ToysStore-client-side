@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import alltoys from "../../../assets/AllToys/alltoy.jpg";
 import { useLoaderData } from "react-router-dom";
 import Toytable from "./Toytable";
 import Pagination from "./Pagination";
+
 const AllToys = () => {
   // const [alltoys,setAlltoys]=useState([])
   const toys = useLoaderData();
   const [currentPage, setCurrentPage] = useState(1);
+  const [search,setSearch]=useState("")
   const postsPerPage = 20;
 
   const lastPostIndex = currentPage * postsPerPage;
@@ -23,13 +25,20 @@ const AllToys = () => {
         }}
       >
         <div className="join flex justify-center items-center py-24">
-          <input
-            className="input input-primary input-bordered join-item lg:w-96"
-            placeholder="Search Toy..."
-          />
-          <button className="btn bg-purple text-white join-item rounded-r-full">
-            Search
-          </button>
+        
+            <input
+              className="input input-primary input-bordered join-item lg:w-96"
+              name="search"
+              placeholder="Search Toy..."
+              value={search}
+              onChange={(event)=>{
+                setSearch(event.target.value);
+            }}
+            />
+            <button onClick={()=>setSearch('')}  className="btn bg-purple text-white join-item rounded-r-full">
+              Clear
+            </button>
+        
         </div>
         <div className="opacity-75 absolute inset-0 pointer-events-none">
           <div className="bg-gradient-to-t from-black via-transparent to-transparent h-full"></div>
@@ -53,8 +62,14 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-
-            {currentPosts.map((toy, index) => (
+            {
+            currentPosts.filter((val)=>{
+                if(search=== ""){
+                   return val
+                }else if (val.Name.toLowerCase().includes(search.toLowerCase())){
+                 return val
+             }
+             }).map((toy, index) => (
               <Toytable key={index} id={index} toy={toy}></Toytable>
             ))}
           </tbody>
