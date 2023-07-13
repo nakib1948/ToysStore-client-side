@@ -78,19 +78,27 @@ const AllToys = () => {
               </tr>
             </thead>
             <tbody>
-              {currentPosts
-                .filter((val) => {
-                  if (search === "") {
-                    return val;
-                  } else if (
-                    val.Name.toLowerCase().includes(search.toLowerCase())
-                  ) {
-                    return val;
-                  }
-                })
-                .map((toy, index) => (
-                  <Toytable key={index} id={index} toy={toy}></Toytable>
-                ))}
+
+              {
+                 toys.length>0 ?(currentPosts
+                  .filter((val) => {
+                    if (search === "") {
+                      return val;
+                    } else if (
+                      val.Name.toLowerCase().includes(search.toLowerCase())
+                    ) {
+                      return val;
+                    }
+                  })
+                  .map((toy, index) => (
+                    <Toytable key={index} id={index} toy={toy}></Toytable>
+                  ))):(<><progress className="progress progress-primary w-56" value={0} max="100"></progress>
+                 <progress className="progress progress-primary w-56" value="10" max="100"></progress>
+                 <progress className="progress progress-primary w-56" value="40" max="100"></progress>
+                 <progress className="progress progress-primary w-56" value="70" max="100"></progress>
+                 <progress className="progress progress-primary w-56" value="100" max="100"></progress></>)
+              }
+              {}
             </tbody>
           </table>
         </div>
