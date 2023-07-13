@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import google from "../../../assets/Login/google.png"
 const SocialLogin = () => {
-    const {googleSignIn,githubSignIn}=useContext(AuthContext)
+    const {googleSignIn}=useContext(AuthContext)
     const handleGoogleSignIn=()=>{
         googleSignIn()
         .then(result=>{
@@ -10,13 +10,7 @@ const SocialLogin = () => {
         })
         .catch(error=>console.log(error))
     }
-    const handleGithubSignIn=()=>{
-        githubSignIn()
-        .then(result=>{
-            console.log(result.user)
-        })
-        .catch(error=>console.log(error))
-    }
+   
     return (
         <div>
             <div className='divider'>OR</div>
