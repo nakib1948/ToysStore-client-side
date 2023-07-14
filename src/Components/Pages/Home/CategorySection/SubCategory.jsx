@@ -5,10 +5,17 @@ import {
   faStarHalfStroke,
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
   const SubCategory = ({ subcategory }) => {
-  const { pictureurl, Name, price, rating, discount } = subcategory;
+  const { _id,pictureurl, Name, price, rating, discount } = subcategory;
   const [showButton, setShowButton] = useState(false);
+
+  const navigate=useNavigate()
+ 
+  const handleClick=(id)=>{
+    navigate(`/toydetails/${id}`)
+  }
 
   const handleMouseEnter = () => {
     setShowButton(true);
@@ -63,7 +70,7 @@ import {
               />
               <p className="ml-2"> {rating}</p>
               {showButton && (
-                <button className="absolute bottom-0 left-0 right-0 p-2 bg-purple btn text-white transition duration-300 opacity-100">
+                <button onClick={()=>handleClick(_id)} className="absolute bottom-0 left-0 right-0 p-2 bg-purple btn text-white transition duration-300 opacity-100">
                   View Details
                 </button>
               )}

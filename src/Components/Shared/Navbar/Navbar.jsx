@@ -60,6 +60,9 @@ const Navbar = () => {
           <li>
           <Link to="/blog" className="text-xl  text-purple rounded-full">Blogs</Link>
           </li>
+          <li>
+          <Link to="/addtoys" className="text-xl  text-purple rounded-full">Add Toys</Link>
+          </li>
         </ul>
       </div>
       <div className="navbar-end mr-3">
