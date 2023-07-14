@@ -35,13 +35,24 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li className="">
-              <Link to="/" className="text-xl text-purple rounded-full">Home</Link>
+              <Link to="/" className="text-xl text-purple rounded-full">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/alltoys" className="text-xl text-purple rounded-full">All Toys</Link>
+              <Link to="/alltoys" className="text-xl text-purple rounded-full">
+                All Toys
+              </Link>
             </li>
             <li>
-              <Link to="/blog" className="text-xl  text-purple rounded-full">Blogs</Link>
+              <Link to="/blog" className="text-xl  text-purple rounded-full">
+                Blogs
+              </Link>
+            </li>
+            <li>
+              <Link to="/addtoys" className="text-xl  text-purple rounded-full">
+                Add Toys
+              </Link>
             </li>
           </ul>
         </div>
@@ -52,16 +63,29 @@ const Navbar = () => {
       <div className="navbar-center  hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ">
           <li className="">
-          <Link to="/" className="text-xl text-purple rounded-full">Home</Link>
+            <Link to="/" className="text-xl text-purple rounded-full">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/alltoys" className="text-xl text-purple rounded-full">All Toys</Link>
+            <Link to="/alltoys" className="text-xl text-purple rounded-full">
+              All Toys
+            </Link>
           </li>
           <li>
-          <Link to="/blog" className="text-xl  text-purple rounded-full">Blogs</Link>
+            <Link to="/blog" className="text-xl  text-purple rounded-full">
+              Blogs
+            </Link>
           </li>
           <li>
-          <Link to="/addtoys" className="text-xl  text-purple rounded-full">Add Toys</Link>
+            <Link to="/addtoys" className="text-xl  text-purple rounded-full">
+              Add Toys
+            </Link>
+          </li>
+          <li>
+            <Link to="/mytoys" className="text-xl  text-purple rounded-full">
+              My Toys
+            </Link>
           </li>
         </ul>
       </div>
@@ -69,7 +93,7 @@ const Navbar = () => {
         {user?.email ? (
           <div>
             <img
-             onClick={()=>window.my_modal_2.showModal()}
+              onClick={() => window.my_modal_2.showModal()}
               className="h-16 rounded-full group hover:tooltip"
               src={user.photoURL}
               alt="User Profile"
@@ -85,7 +109,10 @@ const Navbar = () => {
                 />
                 <p className="text-lg text-center">Name: {user.displayName}</p>
                 <p className="py-4 text-center">Email: {user.email}</p>
-                <button  onClick={() => signout()} className="btn btn-block bg-purple text-white">
+                <button
+                  onClick={() => signout()}
+                  className="btn btn-block bg-purple text-white"
+                >
                   Logout
                 </button>
               </form>
