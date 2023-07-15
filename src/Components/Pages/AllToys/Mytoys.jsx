@@ -21,14 +21,7 @@ const Mytoys = () => {
   const { user } = useContext(AuthContext);
   const [mytoys, setmytoys] = useState([]);
   const [copymytoys, setcopymytoys] = useState([]);
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
- 
   const url = `http://localhost:3000/mytoys?email=${user?.email}`;
-
   useEffect(() => {
     fetch(url, {
       method: "GET",
@@ -43,6 +36,33 @@ const Mytoys = () => {
         console.log(mytoys);
       });
   }, []);
+
+  const handleSelectChange = (event) => {
+    const SelectedOption = event.target.value;
+    console.log(event.target.value);
+    if (SelectedOption == "Default Price") {
+      setmytoys(copymytoys);
+    } else {
+
+      const data={
+         text:SelectedOption
+      }
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+        .then((res) => res.json())
+        .then(async (data) => {
+          await setmytoys(data);
+          console.log(mytoys);
+        });
+    }
+  };
+
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -92,13 +112,16 @@ const Mytoys = () => {
           </p>
         </div>
 
-        <select  onChange={handleSelectChange} className="select select-primary w-min max-w-xs">
+        <select
+          onChange={handleSelectChange}
+          className="select select-primary w-min max-w-xs my-5"
+        >
           <option disabled selected>
             Filter by Price
           </option>
           <option value="Default Price">Default Price</option>
-          <option value="Lowest to Highest"></option>
-          <option value="Highest to Lowest"></option>
+          <option value="Lowest to Highest">Lowest to Highest</option>
+          <option value="Highest to Lowest">Highest to Lowest</option>
         </select>
         {mytoys.length > 0 ? (
           <div className="overflow-x-auto bg-base-200">
