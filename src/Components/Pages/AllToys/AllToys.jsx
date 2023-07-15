@@ -64,23 +64,22 @@ const AllToys = () => {
           </p>
         </div>
 
-        <div className="overflow-x-auto bg-base-200">
-          <table className="table">
-            <thead>
-              <tr>
-                <th className="text-base text-purple ">NO.</th>
-                <th className="text-base text-purple ">Image</th>
-                <th className="text-base text-purple ">Toy Name</th>
-                <th className="text-base text-purple ">Sub-category</th>
-                <th className="text-base text-purple ">Price</th>
-                <th className="text-base text-purple ">Available Quantity</th>
-                <th className="text-base text-purple ">Details</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              {
-                 toys.length>0 ?(currentPosts
+        {toys.length > 0 ? (
+          <div className="overflow-x-auto bg-base-200">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th className="text-base text-purple ">NO.</th>
+                  <th className="text-base text-purple ">Image</th>
+                  <th className="text-base text-purple ">Toy Name</th>
+                  <th className="text-base text-purple ">Sub-category</th>
+                  <th className="text-base text-purple ">Price</th>
+                  <th className="text-base text-purple ">Available Quantity</th>
+                  <th className="text-base text-purple ">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentPosts
                   .filter((val) => {
                     if (search === "") {
                       return val;
@@ -92,16 +91,18 @@ const AllToys = () => {
                   })
                   .map((toy, index) => (
                     <Toytable key={index} id={index} toy={toy}></Toytable>
-                  ))):(<><progress className="progress progress-primary w-56" value={0} max="100"></progress>
-                 <progress className="progress progress-primary w-56" value="10" max="100"></progress>
-                 <progress className="progress progress-primary w-56" value="40" max="100"></progress>
-                 <progress className="progress progress-primary w-56" value="70" max="100"></progress>
-                 <progress className="progress progress-primary w-56" value="100" max="100"></progress></>)
-              }
-              {}
-            </tbody>
-          </table>
-        </div>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="text-center">
+            <span className="loading loading-ball loading-xs"></span>
+            <span className="loading loading-ball loading-sm"></span>
+            <span className="loading loading-ball loading-md"></span>
+            <span className="loading loading-ball loading-lg"></span>
+          </div>
+        )}
         <Pagination
           totalPosts={toys.length}
           postsPerPage={postsPerPage}

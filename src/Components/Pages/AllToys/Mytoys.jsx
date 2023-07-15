@@ -34,7 +34,7 @@ const Mytoys = () => {
         await setmytoys(data);
         console.log(mytoys);
       });
-  }, [mytoys]);
+  }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -109,7 +109,13 @@ const Mytoys = () => {
                     }
                   })
                   .map((toy, index) => (
-                    <Mytoytable key={index} id={index} toy={toy}></Mytoytable>
+                    <Mytoytable
+                      mytoys={mytoys}
+                      setmytoys={setmytoys}
+                      key={index}
+                      id={index}
+                      toy={toy}
+                    ></Mytoytable>
                   ))}
               </tbody>
             </table>
