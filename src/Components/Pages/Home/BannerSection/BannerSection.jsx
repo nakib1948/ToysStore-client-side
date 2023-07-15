@@ -8,6 +8,7 @@ import bannerBg from "../../../../assets/BannerImage/BannerBg.jpg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { TypeAnimation } from "react-type-animation";
+import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -99,7 +100,7 @@ const BannerSection = () => {
                   adventure today!
                 </p>
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                  Shop Now
+                <Link to="/alltoys">Shop Now</Link> 
                 </button>
               </div>
               <div
@@ -149,7 +150,7 @@ const BannerSection = () => {
                   engaging. Ignite your child's curiosity now!
                 </p>
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                  Shop Now
+                <Link to="/alltoys">Shop Now</Link> 
                 </button>
               </div>
               <div
@@ -199,7 +200,7 @@ const BannerSection = () => {
                 </p>
 
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                  Shop Now
+                <Link to="/alltoys">Shop Now</Link> 
                 </button>
               </div>
               <div
@@ -248,7 +249,7 @@ const BannerSection = () => {
                 </p>
 
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                  Shop Now
+                 <Link to="/alltoys">Shop Now</Link> 
                 </button>
               </div>
               <div

@@ -27,19 +27,7 @@ const Login = () => {
   const handlelogin = (event) => {
     event.preventDefault();
 
-   if(user){
-     return  toast.warn('you are already logged in.Signout to log in anothe account', {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-   }
-
+   
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;

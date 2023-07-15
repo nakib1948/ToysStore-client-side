@@ -6,6 +6,7 @@ import Pagination from "./Pagination";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Mytoytable from "./Mytoytable";
+
 const Mytoys = () => {
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -19,7 +20,13 @@ const Mytoys = () => {
 
   const { user } = useContext(AuthContext);
   const [mytoys, setmytoys] = useState([]);
+  const [copymytoys, setcopymytoys] = useState([]);
+  const [selectedOption, setSelectedOption] = useState('');
 
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+ 
   const url = `http://localhost:3000/mytoys?email=${user?.email}`;
 
   useEffect(() => {
@@ -32,6 +39,7 @@ const Mytoys = () => {
       .then((res) => res.json())
       .then(async (data) => {
         await setmytoys(data);
+        await setcopymytoys(data);
         console.log(mytoys);
       });
   }, []);
@@ -83,6 +91,15 @@ const Mytoys = () => {
             Here are the available toys
           </p>
         </div>
+
+        <select  onChange={handleSelectChange} className="select select-primary w-min max-w-xs">
+          <option disabled selected>
+            Filter by Price
+          </option>
+          <option value="Default Price">Default Price</option>
+          <option value="Lowest to Highest"></option>
+          <option value="Highest to Lowest"></option>
+        </select>
         {mytoys.length > 0 ? (
           <div className="overflow-x-auto bg-base-200">
             <table className="table">
