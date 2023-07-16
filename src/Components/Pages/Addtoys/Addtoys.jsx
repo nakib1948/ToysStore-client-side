@@ -74,9 +74,8 @@ const Addtoys = () => {
         theme: "light",
       });
     }
-    console.log(alldata);
 
-    fetch("http://localhost:3000/addtoy", {
+    fetch("https://toy-marketplace-server-side-smoky.vercel.app/addtoy", {
       method: "POST",
       headers: {
         authorization: `Bearer ${localStorage.getItem(

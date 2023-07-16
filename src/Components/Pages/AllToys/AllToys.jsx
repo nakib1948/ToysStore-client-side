@@ -28,7 +28,7 @@ const AllToys = () => {
     <div ref={ref}>
       <motion.div
         initial="hidden"
-        animate={inView ? "visible" : "hidden"} 
+        animate={inView ? "visible" : "hidden"}
         variants={variants}
         transition={{ duration: 1.5 }}
       >

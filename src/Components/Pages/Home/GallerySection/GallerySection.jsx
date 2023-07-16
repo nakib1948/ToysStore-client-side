@@ -35,7 +35,7 @@ const GallerySection = () => {
   };
 
   return (
-    <div className="my-20" ref={ref} >
+    <div className="my-20" ref={ref}>
       <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"} // Use inView to control the animation
@@ -45,62 +45,63 @@ const GallerySection = () => {
         <p className="text-3xl font-bold text-center  text-purple">
           Explore our beautiful toys collection
         </p>
-        <div className="mt-5 p-10 rounded-md"  style={{
-        backgroundImage: `url(${gallerybg})`,
-      }}> 
-
-        
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={true}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
-          className="mySwiper"
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
+        <div
+          className="mt-5 p-10 rounded-md"
+          style={{
+            backgroundImage: `url(${gallerybg})`,
           }}
         >
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img1} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img2} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img3} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img4} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img5} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img6} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img7} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img8} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img9} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full h-full object-cover" src={img10} />
-          </SwiperSlide>
-        </Swiper>
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={true}
+            modules={[EffectCoverflow, Pagination, Autoplay]}
+            className="mySwiper"
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+          >
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img1} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img2} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img3} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img4} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img5} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img6} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img7} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img8} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img9} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img className="w-full h-full object-cover" src={img10} />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </motion.div>
     </div>

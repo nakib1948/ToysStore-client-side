@@ -8,10 +8,9 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const signout = () => {
-    logOut()
-    .then(()=>{
-      localStorage.removeItem('toywebsite-access-token')
-    })
+    logOut().then(() => {
+      localStorage.removeItem("toywebsite-access-token");
+    });
     navigate("/");
   };
   return (
@@ -39,30 +38,20 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li className="text-xl text-purple rounded-full">
-              <ActiveLink to="/" >
-                Home
-              </ActiveLink>
+              <ActiveLink to="/">Home</ActiveLink>
             </li>
             <li className="text-xl text-purple rounded-full">
-              <ActiveLink to="/alltoys" >
-                All Toys
-              </ActiveLink>
+              <ActiveLink to="/alltoys">All Toys</ActiveLink>
             </li>
             <li className="text-xl text-purple rounded-full">
-              <ActiveLink to="/blog" >
-                Blogs
-              </ActiveLink>
+              <ActiveLink to="/blog">Blogs</ActiveLink>
             </li>
             <li className="text-xl text-purple rounded-full">
-              <ActiveLink to="/addtoys" >
-                Add Toys
-              </ActiveLink>
+              <ActiveLink to="/addtoys">Add Toys</ActiveLink>
             </li>
             <li className="text-xl text-purple rounded-full">
-            <ActiveLink to="/mytoys" >
-              My Toys
-            </ActiveLink>
-          </li>
+              <ActiveLink to="/mytoys">My Toys</ActiveLink>
+            </li>
           </ul>
         </div>
         <a>
@@ -72,29 +61,19 @@ const Navbar = () => {
       <div className="navbar-center  hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ">
           <li className="text-xl text-purple rounded-full">
-            <ActiveLink to="/">
-              Home
-            </ActiveLink>
+            <ActiveLink to="/">Home</ActiveLink>
           </li>
           <li className="text-xl text-purple rounded-full">
-            <ActiveLink to="/alltoys" >
-              All Toys
-            </ActiveLink>
+            <ActiveLink to="/alltoys">All Toys</ActiveLink>
           </li>
           <li className="text-xl text-purple rounded-full">
-            <ActiveLink to="/blog" >
-              Blogs
-            </ActiveLink>
+            <ActiveLink to="/blog">Blogs</ActiveLink>
           </li>
           <li className="text-xl text-purple rounded-full">
-            <ActiveLink to="/addtoys" >
-              Add Toys
-            </ActiveLink>
+            <ActiveLink to="/addtoys">Add Toys</ActiveLink>
           </li>
           <li className="text-xl text-purple rounded-full">
-            <ActiveLink to="/mytoys" >
-              My Toys
-            </ActiveLink>
+            <ActiveLink to="/mytoys">My Toys</ActiveLink>
           </li>
         </ul>
       </div>

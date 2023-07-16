@@ -65,7 +65,7 @@ const BannerSection = () => {
           <div
             className="hero min-h-fit bg-base-200"
             style={{
-              backgroundImage: `url(${bannerBg})` ,
+              backgroundImage: `url(${bannerBg})`,
               borderRadius: "10px",
             }}
           >
@@ -100,7 +100,7 @@ const BannerSection = () => {
                   adventure today!
                 </p>
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                <Link to="/alltoys">Shop Now</Link> 
+                  <Link to="/alltoys">Shop Now</Link>
                 </button>
               </div>
               <div
@@ -128,7 +128,6 @@ const BannerSection = () => {
                   {" "}
                   <TypeAnimation
                     sequence={[
-                     
                       " Find the Perfect Toys for Every Child",
                       1000,
                       "Unleash the Fun with Our Diverse Range of Toys",
@@ -150,7 +149,7 @@ const BannerSection = () => {
                   engaging. Ignite your child's curiosity now!
                 </p>
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                <Link to="/alltoys">Shop Now</Link> 
+                  <Link to="/alltoys">Shop Now</Link>
                 </button>
               </div>
               <div
@@ -200,7 +199,7 @@ const BannerSection = () => {
                 </p>
 
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                <Link to="/alltoys">Shop Now</Link> 
+                  <Link to="/alltoys">Shop Now</Link>
                 </button>
               </div>
               <div
@@ -249,7 +248,7 @@ const BannerSection = () => {
                 </p>
 
                 <button className="btn bg-purple text-white rounded-full mt-4">
-                 <Link to="/alltoys">Shop Now</Link> 
+                  <Link to="/alltoys">Shop Now</Link>
                 </button>
               </div>
               <div

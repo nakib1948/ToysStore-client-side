@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:3000/alltoys')
+        loader:()=>fetch('https://toy-marketplace-server-side-smoky.vercel.app/alltoys')
       },
       {
          path:'login',
@@ -43,12 +43,12 @@ const router = createBrowserRouter([
       {
         path:'alltoys',
         element:<AllToys/>,
-        loader:()=>fetch('http://localhost:3000/alltoys')
+        loader:()=>fetch('https://toy-marketplace-server-side-smoky.vercel.app/alltoys')
       },
       {
         path:'toydetails/:id',
         element:<PrivateRoute> <SingleToyDetails/></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:3000/toydetails/${params.id}`)
+        loader:({params})=>fetch(`https://toy-marketplace-server-side-smoky.vercel.app/toydetails/${params.id}`)
        
       },
       {

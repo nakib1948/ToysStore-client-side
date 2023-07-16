@@ -129,16 +129,16 @@ const Blog = () => {
             values. <br />
             Here's a high-level overview of how the aggregate operation works:
             1. Define a pipeline: Construct an array of stages that specify the
-            operations to be performed on the data. <br /> 2. Execute the pipeline:
-            Pass the pipeline to the `aggregate` method in MongoDB, which
-            processes the documents through each stage of the pipeline. <br /> 3. Data
-            transformation: Each stage in the pipeline modifies or transforms
-            the data based on the specified operation. For example, you can
-            filter documents, group them by a specific field, calculate
-            aggregate values like counts or sums, and reshape the output. <br /> 4.
-            Output result: The final stage of the pipeline returns the result of
-            the aggregation operation, which can be a single document or a
-            cursor with multiple documents. <br />
+            operations to be performed on the data. <br /> 2. Execute the
+            pipeline: Pass the pipeline to the `aggregate` method in MongoDB,
+            which processes the documents through each stage of the pipeline.{" "}
+            <br /> 3. Data transformation: Each stage in the pipeline modifies
+            or transforms the data based on the specified operation. For
+            example, you can filter documents, group them by a specific field,
+            calculate aggregate values like counts or sums, and reshape the
+            output. <br /> 4. Output result: The final stage of the pipeline
+            returns the result of the aggregation operation, which can be a
+            single document or a cursor with multiple documents. <br />
             The aggregate operation allows you to perform complex data
             manipulations and aggregations in a single query, making it a
             powerful tool for data analysis and reporting in MongoDB.

@@ -36,8 +36,8 @@ const Login = () => {
         const loggedUser = {
           email: user.email,
         };
-     
-        fetch(`http://localhost:3000/jwt`, {
+
+        fetch(`https://toy-marketplace-server-side-smoky.vercel.app/jwt`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -46,7 +46,6 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-           
             localStorage.setItem("toywebsite-access-token", data.token);
             navigate(from, { replace: true });
           });

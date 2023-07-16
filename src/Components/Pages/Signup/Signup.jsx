@@ -29,8 +29,6 @@ const Signup = () => {
     const password = form.password.value;
     const photo = form.photo.value;
 
-    console.log(name, email, password, photo);
-
     if (name === "" || email === "" || password === "" || photo === "") {
       return toast.warn(" Please fill out the empty field!", {
         position: "top-center",

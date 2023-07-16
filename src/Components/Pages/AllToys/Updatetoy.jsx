@@ -20,7 +20,7 @@ const Updatetoy = ({ toy, mytoys, setmytoys }) => {
     subcategory,
     description,
   } = toy;
-   console.log(toy.SellerName)
+
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -42,7 +42,7 @@ const Updatetoy = ({ toy, mytoys, setmytoys }) => {
     const quantity = form.quantity.value;
     const subcategory = selectedOption;
     const description = toyDescription;
-    console.log(description, subcategory);
+
     const updatetoy = {
       _id,
       discount,
@@ -68,7 +68,6 @@ const Updatetoy = ({ toy, mytoys, setmytoys }) => {
       subcategory === "" ||
       description === ""
     ) {
-      // console.log(updatetoy);
       return toast.warn("Please fill out all the fields", {
         position: "bottom-center",
         autoClose: 2000,
@@ -81,16 +80,18 @@ const Updatetoy = ({ toy, mytoys, setmytoys }) => {
       });
     }
 
-    fetch(`http://localhost:3000/updatetoy/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatetoy),
-    })
+    fetch(
+      `https://toy-marketplace-server-side-smoky.vercel.app/updatetoy/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatetoy),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           toast.success("Toy updated successfully!!!", {
             position: "bottom-center",
@@ -105,7 +106,6 @@ const Updatetoy = ({ toy, mytoys, setmytoys }) => {
 
           const updatedtoy = mytoys.filter((data) => data._id !== _id);
           setmytoys([...updatedtoy, updatetoy]);
-          console.log(updatedtoy);
         }
       });
   };

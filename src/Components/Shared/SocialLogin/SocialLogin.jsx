@@ -16,7 +16,7 @@ const SocialLogin = () => {
           email: user.email,
         };
 
-        fetch(`http://localhost:3000/jwt`, {
+        fetch(`https://toy-marketplace-server-side-smoky.vercel.app/jwt`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -29,7 +29,7 @@ const SocialLogin = () => {
             navigate(from, { replace: true });
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {});
   };
 
   return (

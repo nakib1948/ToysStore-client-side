@@ -10,15 +10,13 @@ import CustomerReview from "./CustomerReview/CustomerReview";
 const Home = () => {
   return (
     <div className="my-10">
-        <BannerSection/>
-        <GallerySection/>
-        <CategorySection/>
-        <ServiceSection/>
-        <DiscountSection/>
-        <CustomerReview/>
+      <BannerSection />
+      <GallerySection />
+      <CategorySection />
+      <ServiceSection />
+      <DiscountSection />
+      <CustomerReview />
     </div>
-  
-  
   );
 };
 

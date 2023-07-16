@@ -34,7 +34,10 @@ const DiscountSection = () => {
           variants={containerVariants}
           className="max-w-md"
         >
-          <motion.h2 className="mb-5 text-5xl font-bold text-purple" variants={contentVariants}>
+          <motion.h2
+            className="mb-5 text-5xl font-bold text-purple"
+            variants={contentVariants}
+          >
             Get <span className="text-yellow-200">30%</span> Off Discount Coupon
           </motion.h2>
           <motion.p className="mb-5 text-lg" variants={contentVariants}>

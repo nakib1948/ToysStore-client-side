@@ -22,7 +22,7 @@ const Mytoys = () => {
   const { user, logOut } = useContext(AuthContext);
   const [mytoys, setmytoys] = useState([]);
   const [copymytoys, setcopymytoys] = useState([]);
-  const url = `http://localhost:3000/mytoys?email=${user?.email}`;
+  const url = `https://toy-marketplace-server-side-smoky.vercel.app/mytoys?email=${user?.email}`;
   useEffect(() => {
     fetch(url, {
       method: "GET",
@@ -47,7 +47,7 @@ const Mytoys = () => {
 
   const handleSelectChange = (event) => {
     const SelectedOption = event.target.value;
-    console.log(event.target.value);
+
     if (SelectedOption == "Default Price") {
       setmytoys(copymytoys);
     } else {
@@ -174,7 +174,6 @@ const Mytoys = () => {
           </div>
         ) : (
           <div className="text-center">
-            <p className="text-red-500 text-lg">You have no toy collection</p>
             <span className="loading loading-ball loading-xs"></span>
             <span className="loading loading-ball loading-sm"></span>
             <span className="loading loading-ball loading-md"></span>

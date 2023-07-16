@@ -21,7 +21,9 @@ const CategorySection = () => {
 
   return (
     <div ref={ref}>
-      <p className="text-3xl pb-10 font-bold text-purple text-center">Purchase by category</p>
+      <p className="text-3xl pb-10 font-bold text-purple text-center">
+        Purchase by category
+      </p>
       <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"} // Use inView to control the animation

@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 const Mytoytable = ({ toy, id, setmytoys, mytoys }) => {
   const { _id, pictureurl, Name, subcategory, price, quantity } = toy;
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Warning!",
       text: "Are you sure you want to delete this item?",
@@ -16,9 +15,12 @@ const Mytoytable = ({ toy, id, setmytoys, mytoys }) => {
       confirmButtonText: "Confirm delete",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/toydelete/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://toy-marketplace-server-side-smoky.vercel.app/toydelete/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -64,17 +66,14 @@ const Mytoytable = ({ toy, id, setmytoys, mytoys }) => {
 
         <input type="checkbox" id="my_modal_7" className="modal-toggle" />
         <div className="modal">
-          
           <Updatetoy toy={toy} setmytoys={setmytoys} mytoys={mytoys} />
-           
-         
+
           <label className="modal-backdrop" htmlFor="my_modal_7">
             Close
           </label>
         </div>
 
         {/* update modal */}
-
       </th>
     </tr>
   );
