@@ -6,6 +6,7 @@ import Pagination from "./Pagination";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Mytoytable from "./Mytoytable";
+import { useNavigate } from "react-router-dom";
 
 const Mytoys = () => {
   const [ref, inView] = useInView({
@@ -17,8 +18,8 @@ const Mytoys = () => {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
   };
-
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, logOut } = useContext(AuthContext);
   const [mytoys, setmytoys] = useState([]);
   const [copymytoys, setcopymytoys] = useState([]);
   const url = `http://localhost:3000/mytoys?email=${user?.email}`;
@@ -26,16 +27,23 @@ const Mytoys = () => {
     fetch(url, {
       method: "GET",
       headers: {
+        authorization: `Bearer ${localStorage.getItem(
+          "toywebsite-access-token"
+        )}`,
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
       .then(async (data) => {
-        await setmytoys(data);
-        await setcopymytoys(data);
-        console.log(mytoys);
+        if (!data.error) {
+          await setmytoys(data);
+          await setcopymytoys(data);
+        } else {
+          logOut();
+          navigate("/");
+        }
       });
-  }, []);
+  }, [url, navigate]);
 
   const handleSelectChange = (event) => {
     const SelectedOption = event.target.value;
@@ -43,26 +51,30 @@ const Mytoys = () => {
     if (SelectedOption == "Default Price") {
       setmytoys(copymytoys);
     } else {
-
-      const data={
-         text:SelectedOption
-      }
+      const data = {
+        text: SelectedOption,
+      };
       fetch(url, {
         method: "POST",
         headers: {
+          authorization: `Bearer ${localStorage.getItem(
+            "toywebsite-access-token"
+          )}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
         .then((res) => res.json())
         .then(async (data) => {
-          await setmytoys(data);
-          console.log(mytoys);
+          if (!data.error) {
+            await setmytoys(data);
+          } else {
+            logOut();
+            navigate("/");
+          }
         });
     }
   };
-
-  
 
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -162,6 +174,7 @@ const Mytoys = () => {
           </div>
         ) : (
           <div className="text-center">
+            <p className="text-red-500 text-lg">You have no toy collection</p>
             <span className="loading loading-ball loading-xs"></span>
             <span className="loading loading-ball loading-sm"></span>
             <span className="loading loading-ball loading-md"></span>

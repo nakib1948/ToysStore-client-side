@@ -2,7 +2,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="w-3/5 mx-auto">
+    <div className="w-3/5 mx-auto my-20">
       <div
         tabIndex={0}
         className="collapse collapse-plus border border-base-300 bg-base-200"
@@ -43,7 +43,7 @@ const Blog = () => {
 
       <div
         tabIndex={0}
-        className="collapse collapse-plus border border-base-300 bg-base-200"
+        className="collapse collapse-plus my-5 border border-base-300 bg-base-200"
       >
         <div className="collapse-title text-xl font-medium">
           Compare SQL and NoSQL databases?
@@ -110,7 +110,7 @@ const Blog = () => {
 
       <div
         tabIndex={0}
-        className="collapse collapse-plus border border-base-300 bg-base-200"
+        className="collapse collapse-plus my-5 border border-base-300 bg-base-200"
       >
         <div className="collapse-title text-xl font-medium">
           What is MongoDB aggregate and how does it work?

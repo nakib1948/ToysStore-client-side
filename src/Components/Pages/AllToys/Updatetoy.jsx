@@ -20,7 +20,7 @@ const Updatetoy = ({ toy, mytoys, setmytoys }) => {
     subcategory,
     description,
   } = toy;
-  // console.log(description)
+   console.log(toy.SellerName)
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };

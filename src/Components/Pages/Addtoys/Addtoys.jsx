@@ -8,7 +8,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const Addtoys = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [toydescription, setToydescription] = useState("");
-  const {user}=useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
 
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -38,8 +38,8 @@ const Addtoys = () => {
     const price = form.price.value;
     const rating = form.rating.value;
     const quantity = form.quantity.value;
-    const subcategory= selectedOption;
-    const description= toydescription;
+    const subcategory = selectedOption;
+    const description = toydescription;
 
     const alldata = {
       Name,
@@ -79,24 +79,31 @@ const Addtoys = () => {
     fetch("http://localhost:3000/addtoy", {
       method: "POST",
       headers: {
+        authorization: `Bearer ${localStorage.getItem(
+          "toywebsite-access-token"
+        )}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(alldata),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        toast.success("Toy added successfully!!!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        form.reset()
+        if (!data.error) {
+          toast.success("Toy added successfully!!!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          form.reset();
+        } else {
+          logOut();
+          navigate("/");
+        }
       });
   };
 
@@ -110,7 +117,7 @@ const Addtoys = () => {
       }}
     >
       <ToastContainer />
-    
+
       <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"}

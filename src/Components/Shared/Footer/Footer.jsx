@@ -54,9 +54,9 @@ const Footer = () => {
           <p>(Available: Sat to Thu (10AM to 8PM))</p>
         </div>
       </footer>
-      <small className="text-center">
-        Copyright © 2023 - All right reserved by Toys store
-      </small>
+      <div className="text-center">
+        <p>Copyright © 2023 - All right reserved by Toys store</p>
+      </div>
     </>
   );
 };

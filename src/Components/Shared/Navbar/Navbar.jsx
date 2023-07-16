@@ -3,11 +3,15 @@ import bannerBg from "../../../assets/BannerImage/BannerBg.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
+import ActiveLink from "../../../ActiveLink/ActiveLink";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
   const signout = () => {
-    logOut();
+    logOut()
+    .then(()=>{
+      localStorage.removeItem('toywebsite-access-token')
+    })
     navigate("/");
   };
   return (
@@ -34,26 +38,31 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li className="">
-              <Link to="/" className="text-xl text-purple rounded-full">
+            <li className="text-xl text-purple rounded-full">
+              <ActiveLink to="/" >
                 Home
-              </Link>
+              </ActiveLink>
             </li>
-            <li>
-              <Link to="/alltoys" className="text-xl text-purple rounded-full">
+            <li className="text-xl text-purple rounded-full">
+              <ActiveLink to="/alltoys" >
                 All Toys
-              </Link>
+              </ActiveLink>
             </li>
-            <li>
-              <Link to="/blog" className="text-xl  text-purple rounded-full">
+            <li className="text-xl text-purple rounded-full">
+              <ActiveLink to="/blog" >
                 Blogs
-              </Link>
+              </ActiveLink>
             </li>
-            <li>
-              <Link to="/addtoys" className="text-xl  text-purple rounded-full">
+            <li className="text-xl text-purple rounded-full">
+              <ActiveLink to="/addtoys" >
                 Add Toys
-              </Link>
+              </ActiveLink>
             </li>
+            <li className="text-xl text-purple rounded-full">
+            <ActiveLink to="/mytoys" >
+              My Toys
+            </ActiveLink>
+          </li>
           </ul>
         </div>
         <a>
@@ -62,30 +71,30 @@ const Navbar = () => {
       </div>
       <div className="navbar-center  hidden lg:flex">
         <ul className="menu menu-horizontal px-1 ">
-          <li className="">
-            <Link to="/" className="text-xl text-purple rounded-full">
+          <li className="text-xl text-purple rounded-full">
+            <ActiveLink to="/">
               Home
-            </Link>
+            </ActiveLink>
           </li>
-          <li>
-            <Link to="/alltoys" className="text-xl text-purple rounded-full">
+          <li className="text-xl text-purple rounded-full">
+            <ActiveLink to="/alltoys" >
               All Toys
-            </Link>
+            </ActiveLink>
           </li>
-          <li>
-            <Link to="/blog" className="text-xl  text-purple rounded-full">
+          <li className="text-xl text-purple rounded-full">
+            <ActiveLink to="/blog" >
               Blogs
-            </Link>
+            </ActiveLink>
           </li>
-          <li>
-            <Link to="/addtoys" className="text-xl  text-purple rounded-full">
+          <li className="text-xl text-purple rounded-full">
+            <ActiveLink to="/addtoys" >
               Add Toys
-            </Link>
+            </ActiveLink>
           </li>
-          <li>
-            <Link to="/mytoys" className="text-xl  text-purple rounded-full">
+          <li className="text-xl text-purple rounded-full">
+            <ActiveLink to="/mytoys" >
               My Toys
-            </Link>
+            </ActiveLink>
           </li>
         </ul>
       </div>
@@ -123,7 +132,7 @@ const Navbar = () => {
           </div>
         ) : (
           <button className="btn bg-purple text-white rounded-full">
-            <Link to="login ">Login</Link>
+            <ActiveLink to="login ">Login</ActiveLink>
           </button>
         )}
       </div>

@@ -27,7 +27,7 @@ const SubCategory = ({ subcategory }) => {
 
   return (
     <div
-      className="indicator relative"
+      className="indicator relative sm:w-10/12"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
