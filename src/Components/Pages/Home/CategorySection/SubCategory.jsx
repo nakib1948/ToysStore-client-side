@@ -7,15 +7,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-  const SubCategory = ({ subcategory }) => {
-  const { _id,pictureurl, Name, price, rating, discount } = subcategory;
+const SubCategory = ({ subcategory }) => {
+  const { _id, pictureurl, Name, price, rating, discount } = subcategory;
   const [showButton, setShowButton] = useState(false);
 
-  const navigate=useNavigate()
- 
-  const handleClick=(id)=>{
-    navigate(`/toydetails/${id}`)
-  }
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/toydetails/${id}`);
+  };
 
   const handleMouseEnter = () => {
     setShowButton(true);
@@ -33,7 +33,12 @@ import { useNavigate } from "react-router-dom";
     >
       <span className="indicator-item badge badge-primary">{discount}</span>
 
-      <div className="card w-72 bg-base-100 shadow-xl">
+      <div
+        className="card w-72 bg-base-100 shadow-xl "
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000"
+      >
         <figure className=" pt-10">
           <img src={pictureurl} alt="Shoes" className="rounded-xl h-60" />
         </figure>
@@ -70,7 +75,10 @@ import { useNavigate } from "react-router-dom";
               />
               <p className="ml-2"> {rating}</p>
               {showButton && (
-                <button onClick={()=>handleClick(_id)} className="absolute bottom-0 left-0 right-0 p-2 bg-purple btn text-white transition duration-300 opacity-100">
+                <button
+                  onClick={() => handleClick(_id)}
+                  className="absolute bottom-0 left-0 right-0 p-2 bg-purple btn text-white transition duration-300 opacity-100"
+                >
                   View Details
                 </button>
               )}
