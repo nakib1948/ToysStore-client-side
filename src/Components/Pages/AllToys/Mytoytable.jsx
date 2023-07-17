@@ -51,7 +51,7 @@ const Mytoytable = ({ toy, id, setmytoys, mytoys }) => {
       <td>{quantity}</td>
       <th>
         <label
-          htmlFor="my_modal_7"
+          htmlFor={`my_modal_update_${_id}`}
           className="btn bg-purple lg:btn-sm mr-4 py-2 text-white"
         >
           {" "}
@@ -64,11 +64,15 @@ const Mytoytable = ({ toy, id, setmytoys, mytoys }) => {
           Delete
         </button>
 
-        <input type="checkbox" id="my_modal_7" className="modal-toggle" />
+        <input
+          type="checkbox"
+          id={`my_modal_update_${_id}`}
+          className="modal-toggle"
+        />
         <div className="modal">
           <Updatetoy toy={toy} setmytoys={setmytoys} mytoys={mytoys} />
 
-          <label className="modal-backdrop" htmlFor="my_modal_7">
+          <label className="modal-backdrop" htmlFor={`my_modal_update_${_id}`}>
             Close
           </label>
         </div>

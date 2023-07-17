@@ -21,7 +21,7 @@ const Mytoys = () => {
   const navigate = useNavigate();
   const { user, logOut } = useContext(AuthContext);
   const [mytoys, setmytoys] = useState([]);
-  const [copymytoys, setcopymytoys] = useState([]);
+
   const url = `https://toy-marketplace-server-side-smoky.vercel.app/mytoys?email=${user?.email}`;
   useEffect(() => {
     fetch(url, {
@@ -37,43 +37,38 @@ const Mytoys = () => {
       .then(async (data) => {
         if (!data.error) {
           await setmytoys(data);
-          await setcopymytoys(data);
         } else {
           logOut();
           navigate("/");
         }
       });
-  }, [url, navigate]);
+  }, []);
 
   const handleSelectChange = (event) => {
     const SelectedOption = event.target.value;
 
-    if (SelectedOption == "Default Price") {
-      setmytoys(copymytoys);
-    } else {
-      const data = {
-        text: SelectedOption,
-      };
-      fetch(url, {
-        method: "POST",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem(
-            "toywebsite-access-token"
-          )}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then(async (data) => {
-          if (!data.error) {
-            await setmytoys(data);
-          } else {
-            logOut();
-            navigate("/");
-          }
-        });
-    }
+    const data = {
+      text: SelectedOption,
+    };
+    fetch(url, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem(
+          "toywebsite-access-token"
+        )}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then(async (data) => {
+        if (!data.error) {
+          await setmytoys(data);
+        } else {
+          logOut();
+          navigate("/");
+        }
+      });
   };
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -164,7 +159,7 @@ const Mytoys = () => {
                     <Mytoytable
                       mytoys={mytoys}
                       setmytoys={setmytoys}
-                      key={index}
+                      key={toy._id}
                       id={index}
                       toy={toy}
                     ></Mytoytable>
