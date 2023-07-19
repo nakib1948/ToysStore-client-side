@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blog = () => {
   return (
     <div className="w-3/5 mx-auto my-20">
+        <Helmet>
+          <title>Toys Store | Blog</title>
+        </Helmet>
       <div
         tabIndex={0}
         className="collapse collapse-plus border border-base-300 bg-base-200"

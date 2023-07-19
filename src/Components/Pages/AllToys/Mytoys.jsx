@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Mytoytable from "./Mytoytable";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Mytoys = () => {
   const [ref, inView] = useInView({
@@ -87,6 +88,9 @@ const Mytoys = () => {
         variants={variants}
         transition={{ duration: 1.5 }}
       >
+        <Helmet>
+          <title>Toys Store | Mytoys</title>
+        </Helmet>
         <div
           className="relative mb-5 rounded-md"
           style={{

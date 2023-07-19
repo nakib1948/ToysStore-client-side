@@ -4,6 +4,7 @@ import bg1 from "../../../assets/Addtoys/bg1.jpg";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Addtoys = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -116,7 +117,9 @@ const Addtoys = () => {
       }}
     >
       <ToastContainer />
-
+      <Helmet>
+        <title>Toys Store | Addtoys</title>
+      </Helmet>
       <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"}

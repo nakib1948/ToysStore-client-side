@@ -7,9 +7,13 @@ import CategorySection from "./CategorySection/CategorySection";
 import ServiceSection from "./ServiceSection/ServiceSection";
 import DiscountSection from "./DiscountSection/DiscountSection";
 import CustomerReview from "./CustomerReview/CustomerReview";
+import { Helmet } from "react-helmet-async";
 const Home = () => {
   return (
     <div className="my-10">
+      <Helmet>
+        <title>Toys Store | Home</title>
+      </Helmet>
       <BannerSection />
       <GallerySection />
       <CategorySection />

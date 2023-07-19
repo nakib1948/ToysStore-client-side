@@ -8,6 +8,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 const Signup = () => {
   const { createUser, logOut } = useContext(AuthContext);
   const auth = getAuth();
@@ -57,16 +59,7 @@ const Signup = () => {
 
     createUser(email, password)
       .then((result) => {
-        toast.success("Signup is successful!! Login to your account", {
-          position: "top-center",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        Swal.fire("Signup is successful!! Please Login to your account");
         const user = result.user;
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -76,8 +69,8 @@ const Signup = () => {
             form.reset();
             logOut();
             setTimeout(() => {
-              navigate("/");
-            }, 3000);
+              navigate("/login");
+            }, 4000);
             // Profile updated!
             // ...
           })
@@ -115,6 +108,9 @@ const Signup = () => {
           }}
         >
           <ToastContainer />
+          <Helmet>
+            <title>Toys Store | Signup</title>
+          </Helmet>
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
               <Lottie animationData={img1} />

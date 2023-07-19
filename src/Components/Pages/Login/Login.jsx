@@ -8,6 +8,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn, user } = useContext(AuthContext);
@@ -79,6 +80,9 @@ const Login = () => {
           }}
         >
           <ToastContainer />
+          <Helmet>
+            <title>Toys Store | Login</title>
+          </Helmet>
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
               <Lottie animationData={img1} />

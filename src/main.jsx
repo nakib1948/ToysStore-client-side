@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import 'swiper/css';
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Home from './Components/Pages/Home/Home.jsx';
 import Main from './Components/Layout/Main.jsx';
 import "slick-carousel/slick/slick.css"; 
@@ -70,11 +71,11 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className="mx-auto max-w-7xl">
     <React.StrictMode>
-     
+    <HelmetProvider>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
-      
+      </HelmetProvider>
     </React.StrictMode>
   </div>
 )

@@ -5,6 +5,7 @@ import Toytable from "./Toytable";
 import Pagination from "./Pagination";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Helmet } from "react-helmet-async";
 const AllToys = () => {
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -32,6 +33,9 @@ const AllToys = () => {
         variants={variants}
         transition={{ duration: 1.5 }}
       >
+        <Helmet>
+          <title>Toys Store | Alltoys</title>
+        </Helmet>
         <div
           className="relative mb-5 rounded-md"
           style={{
