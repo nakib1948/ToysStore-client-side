@@ -109,7 +109,7 @@ const Addtoys = () => {
 
   return (
     <div
-      className="p-5 bg-opacity-60"
+      className="p-5 bg-opacity-60 mx-auto max-w-7xl"
       ref={ref}
       style={{
         backgroundImage: `url(${bg1})`,

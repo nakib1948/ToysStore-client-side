@@ -15,9 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = () => {
   return (
     <>
-      <footer
-        className="footer p-10 bg-base-200 text-base-content"
-      >
+      <footer className="footer p-10 bg-base-200 text-base-content">
         <div className="justify-items-center">
           <img className="h-24 rounded-full" src={footerImg} alt="" />
           <p>
@@ -52,9 +50,14 @@ const Footer = () => {
           <p>(Available: Sat to Thu (10AM to 8PM))</p>
         </div>
       </footer>
-      <div className="text-center">
-        <p>Copyright © 2023 - All right reserved by Toys store</p>
-      </div>
+      <footer className="footer bg-base-200  footer-center p-4">
+        <div>
+          <p>
+            Copyright © {new Date().getFullYear()} - All right reserved by Toys
+            store
+          </p>
+        </div>
+      </footer>
     </>
   );
 };

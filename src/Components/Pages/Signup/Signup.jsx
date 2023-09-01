@@ -93,7 +93,7 @@ const Signup = () => {
       });
   };
   return (
-    <div ref={ref}>
+    <div ref={ref} className="mx-auto max-w-7xl">
       <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"} // Use inView to control the animation
